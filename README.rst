@@ -2,15 +2,15 @@ PyDrive
 -------
 
 *PyDrive* is a wrapper library of
-`google-api-python-client <https://code.google.com/p/google-api-python-client/>`_
+`google-api-python-client <https://github.com/google/google-api-python-client>`_
 that simplifies many common Google Drive API tasks.
 
 Project Info
 ------------
 
 - Homepage: `https://pypi.python.org/pypi/PyDrive <https://pypi.python.org/pypi/PyDrive>`_
-- Documentation: `Official documentation on GitHub pages <https://googledrive.github.io/PyDrive/docs/build/html/index.html>`_
-- Github: `https://github.com/googledrive/PyDrive <https://github.com/googledrive/PyDrive>`_
+- Documentation: `Official documentation on GitHub pages <https://gsuitedevs.github.io/PyDrive/docs/build/html/index.html>`_
+- GitHub: `https://github.com/gsuitedevs/PyDrive <https://github.com/gsuitedevs/PyDrive>`_
 
 Features of PyDrive
 -------------------
@@ -34,7 +34,7 @@ To install the current development version from GitHub, use:
 
 ::
 
-    $  pip install git+https://github.com/googledrive/PyDrive.git#egg=PyDrive
+    $  pip install git+https://github.com/gsuitedevs/PyDrive.git#egg=PyDrive
 
 OAuth made easy
 ---------------
@@ -98,13 +98,13 @@ File listing pagination made easy
     # Auto-iterate through all files that matches this query
     file_list = drive.ListFile({'q': "'root' in parents"}).GetList()
     for file1 in file_list:
-      print('title: %s, id: %s' % (file1['title'], file1['id']))
+        print('title: {}, id: {}'.format(file1['title'], file1['id']))
 
     # Paginate file lists by specifying number of max results
     for file_list in drive.ListFile({'maxResults': 10}):
-      print 'Received %s files from Files.list()' % len(file_list) # <= 10
-      for file1 in file_list:
-        print('title: %s, id: %s' % (file1['title'], file1['id']))
+        print('Received {} files from Files.list()'.format(len(file_list))) # <= 10
+        for file1 in file_list:
+            print('title: {}, id: {}'.format(file1['title'], file1['id']))
 
 Concurrent access made easy
 ---------------------------
